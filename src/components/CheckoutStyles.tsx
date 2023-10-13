@@ -1,8 +1,32 @@
 import styled from "styled-components";
 
+const sizes = {
+  mobileS: "320px",
+  mobileM: "375px",
+  mobileL: "425px",
+  tablet: "768px",
+  laptop: "1024px",
+  laptopL: "1440px",
+  desktop: "2560px",
+};
+
+export const devices = {
+  mobileS: `(min-width: ${sizes.mobileS})`,
+  mobileM: `(max-width: ${sizes.mobileM})`,
+  mobileL: `(min-width: ${sizes.mobileL})`,
+  tablet: `(min-width: ${sizes.tablet})`,
+  laptop: `(min-width: ${sizes.laptop})`,
+  laptopL: `(min-width: ${sizes.laptopL})`,
+  desktop: `(min-width: ${sizes.desktop})`,
+};
+
 export const Container = styled.div`
-  width: 1320px;
+  width: calc(100% - 3rem);
   margin: auto;
+
+  @media ${devices.laptopL} {
+    width: 1320px;
+  }
 `;
 
 export const Header = styled.div`
@@ -11,6 +35,8 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const ContactButton = styled.a`
@@ -26,12 +52,29 @@ export const ContactButton = styled.a`
 
 export const ContainerForms = styled.div`
   display: flex;
+  flex-direction: column;
+
+  @media ${devices.laptop} {
+    flex-direction: row;
+  }
 `;
 
 export const Form = styled.div`
-  width: 33%;
-  margin: 0 36px;
-  padding: 0 1rem;
+  width: 100%;
+
+  border-bottom: 2px solid #f2f2f2;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+
+  @media ${devices.laptop} {
+    width: 33%;
+    margin: 0 36px;
+    padding: 0 1rem;
+    border-top: none;
+    border-bottom: noe;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 `;
 
 export const Line = styled.div`
